@@ -30,52 +30,44 @@ void Zamien(int* arr, int size)
 		arr[i] = min;
 	}
 }
-
-void WstawK(int* arr, int* new_arr, int size, int k)
+void Checker(int* arr, int size, int checker)
 {
-
-	for (int i = 0, j = 0; i < size; i++)
+	for (int i = 1; i < size; i++)
 	{
-		if (arr[i] < 0 && arr[i++] >= 0 || arr[i] >= 0 && arr[i] < 0)
+		if ((arr[i] < 0 && arr[i - 1] > 0) || (arr[i] > 0 && arr[i - 1] < 0))
 		{
-			j = arr[i++];
+			checker++;
 		}
-
-
-		for (int i = 0; i < j; i++)
-			new_arr[i] = arr[i];
-		new_arr[j] = k;
-
-		for (int i = j + 1; i < size + 1; i++)
-			new_arr[i] = arr[i - 1];
 	}
+	cout << checker;
+}
 
-
-	size++;
+void WstawK(int* arr,int size, int k)
+{
 }
 int main()
 {
-	int size, k;
+	int size;
+	int checker=0;
 	cout << "Write size: ";
 	cin >> size;
 	cout << endl;
 	int* arr = new int[size];
-	int* new_arr = new int[size + 1];
 	cout << "Write elements: \t";
 	get(arr, size);
 	cout << "Array elements: \t";
 	print(arr, size);
 	cout << endl;
-	cout << "Write k for function: ";
+	Checker(arr, size,checker);
+	
+
+	/*cout << "Write k for function: ";
 	cin >> k;
 	cout << "After WstawK function: \t";
-	WstawK(arr, new_arr, size, k);
-	print(new_arr, size);
-	Zamien(arr, size);
-	cout << endl;
+	
 	cout << "Po Zamienie: \t";
 	print(arr, size);
-	cout << endl;
+	cout << endl;*/
 
 	delete[]arr;
 	return 0;
