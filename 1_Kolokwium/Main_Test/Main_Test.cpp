@@ -30,13 +30,10 @@ int main()
     int size;
     cout << "Write size (>0): ";
     cin >> size;
-    if (size <= 0)
+    for (; size <= 0;)
     {
-        for (; size <= 0;)
-        {
-            cout << "Wtite correct size(>0): ";
-            cin >> size;
-        }
+        cout << "Wtite correct size(>0): ";
+        cin >> size;
     }
     int* arr = new int[size];
     cout << "Write elements(>0): ";
@@ -62,7 +59,7 @@ int main()
         }
         cout << arr[i] << " ";
     }
-    for (int i = 1; i + 3 < size; i + 3)
+    for (int i = 1; i + 2 < size; i += 3)
     {
         int max = arr[i - 1];
         if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) max = arr[i];
