@@ -51,7 +51,7 @@ int main()
     }
     cout << "Elements: ";
     int min = arr[0];
-    for (int i = 0; i < size; i++)
+    for (int i = 1; i < size; i++)
     {
         if (arr[i] < min)
         {
@@ -64,9 +64,9 @@ int main()
         int max = arr[i - 1];
         if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) max = arr[i];
         if (arr[i+1] >= arr[i - 1] && arr[i+1] >= arr[i]) max = arr[i+1];
-        if (arr[i-1] = max) arr[i-1] = arr[i-1] % min;
-        if (arr[i] = max)   arr[i] = arr[i] % min;
-        if (arr[i+1] = max) arr[i+1] = arr[i+1] % min;
+        if (arr[i-1] == max) arr[i-1] = arr[i-1] % min;
+        if (arr[i] == max)   arr[i] = arr[i] % min;
+        if (arr[i+1] == max) arr[i+1] = arr[i+1] % min;
     }
     cout << "Elements after function: ";
     for (int i = 0; i < size; i++)
